@@ -27,8 +27,8 @@ def get_gas_price(tx):
     return gas_price
 
 def get_gas(tx):
-    tx = w3.eth.get_transaction(tx)
-    gas = tx['gas']
+    tx = w3.eth.get_transaction_receipt(tx)
+    gas = tx['gasUsed']
     return gas
 
 def get_transaction_cost(tx):
@@ -44,9 +44,3 @@ def get_most_expensive_transaction(block_num):
     max_tx = HexBytes('0xf7f4905225c0fde293e2fd3476e97a9c878649dd96eb02c86b86be5b92d826b6')  #YOUR CODE HERE
     return max_tx
 
-
-#block = w3.eth.get_block('latest')
-#tx = block['transactions'][0]
-#print(w3.eth.get_transaction(tx))
-#print(get_gas_price(tx))
-#print(get_gas(tx))
