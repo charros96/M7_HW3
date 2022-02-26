@@ -37,6 +37,7 @@ def get_transaction_cost(tx):
 
 def get_block_cost(block_num):
     block = w3.eth.get_block(block_num)
+    block_cost = 0
     for tx in block['transactions']:
         block_cost += get_transaction_cost(tx)
     
@@ -54,3 +55,10 @@ def get_most_expensive_transaction(block_num):
     
     return max_tx
 
+
+#block = w3.eth.get_block('latest')
+#tx = block['transactions'][0]
+#print(w3.eth.get_transaction(tx))
+#print(get_gas_price(tx))
+#print(w3.eth.get_transaction_receipt(tx))
+#print(get_gas(tx))
